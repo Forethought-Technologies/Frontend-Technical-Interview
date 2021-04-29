@@ -2,6 +2,29 @@
   text-align: center;
 }
 
+.Nav-links {
+  background-color: #0ea8a8;
+  color: black;
+  height: 50px;
+  margin-top: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  li {
+    margin: 0 10px;
+    a {
+      &:hover {
+        color: rgb(119, 0, 255);
+      }
+
+      &:visited {
+        color: red;
+      }
+    }
+  }
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -26,13 +49,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
