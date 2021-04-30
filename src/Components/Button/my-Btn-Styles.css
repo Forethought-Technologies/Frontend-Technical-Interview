@@ -1,0 +1,20 @@
+.container{
+    
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text{
+    font-size: 14px;
+}
+
+.icon {
+    display:inline;
+    background: url('https://img.icons8.com/pastel-glyph/2x/dog--v5.png');
+    width: 16px;
+    height: 16px;
+}
