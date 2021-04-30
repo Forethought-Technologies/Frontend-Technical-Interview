@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import * as mysql from 'mysql';
 
 // Components
 import Button from '../Components/Button'
