@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import '../App.scss';
+
+// Components
+import Button from '../Components/Button'
+import Logo from '../Components/Logo';
+
+// Types
 import { Links } from '../Types/types';
+
+import './App.scss';
 
 function App() {
 
@@ -11,7 +18,7 @@ function App() {
     { name: 'Careers', link: 'www.forethought.ai/careers' }
   ];
 
-  const [lnks, setLnks] = useState<Links>(links);
+  const [navLinks, setNavLinks] = useState<Links>(links);
 
   // useEffect(() => {
   //   let counter = 0;
@@ -21,11 +28,11 @@ function App() {
   //       setLnks(links);
   //     }
   //   }
-  // }); // TODO UNCOMMENT
+  // });
 
   const createLinks = (): Links => {
     const items = []
-    for (var i = 0; i < lnks.length; i++) {
+    for (var i = 0; i < navLinks.length; i++) {
       if (i === 0 || i === 1 || i === 3 || i === 4) {
         for (const property in links) {
           var obj = links[i];
@@ -35,7 +42,7 @@ function App() {
       }
     }
 
-    var navLinks = items.reduce((unique: any, o: any) => {
+    var navigationLinks = items.reduce((unique: any, o: any) => {
       if (!unique.some((obj: any) => {
         return obj.props.children.props.children === o.props.children.props.children && obj.props.children.props.href === o.props.children.props.href
       })) {
@@ -43,14 +50,23 @@ function App() {
       }
       return unique;
     }, []);
-    return navLinks;
+    return navigationLinks;
   }
 
   return (
     <div className="Nav">
-      {/* logo */}
+      <Logo
+        styleClass={'Logo'}
+        altText={'Forethought Logo'}
+        imageSource={'/src/Assets/icon-ft-opaque-green.svg'}
+      />
       <ul className='Nav-links'>
-        {createLinks()}
+        {createLinks().map(link => {
+          return <Button btnTxt={link}
+            btnLnk={(link as any).props.children.props.href}
+            btnCls='Nav-links'
+            myfunction={() => { }} />
+        })}
       </ul>
     </div>
   );
